@@ -63,7 +63,13 @@ def logic(arena_data: dict):
     tokens = [token.strip() for token in team_signal.split(",") if token.strip() != "h"]
     count_air = sum(1 for token in tokens if token in opponent_air)
     count_ground = sum(1 for token in tokens if token in opponent_ground)
-    
+    troops_all={"Archer", "Minion", "Knight", "Skeleton", "Dragon", "Valkyrie","Musketeer", "Giant", "Prince", "Barbarian", "Balloon", "Wizard"}
+    points ={{0 for i in range (0,12)} for j in range (0,12)}
+    for i in range (0,12):
+        for j in range (0,12):
+            if i==j:
+                points[i][j]=5
+    points[0] = {5,4,4,4,3,3,6,6,}
     if count_ground > count_air:
         recommended_counter = "air"    # Counter ground with air units.
     elif count_air > count_ground:
@@ -78,9 +84,9 @@ def logic(arena_data: dict):
         Troops.wizard:    {"score": 6, "category": "air",    "name": "Wizard"},
         Troops.minion:    {"score": 4, "category": "air",    "name": "Minion"},
         Troops.archer:    {"score": 2, "category": "air", "name": "Archer"},
-        Troops.knight:     {"score": 5, "category": "ground", "name": "Knight"},
+        Troops.musketeer:     {"score": 4, "category": "air", "name": "Musketeer"},
         Troops.dragon:    {"score": 5, "category": "air",    "name": "Dragon"},
-        Troops.prince:  {"score": 5, "category": "ground", "name": "Prince"},
+        Troops.skeleton:  {"score": 3, "category": "ground", "name": "Skeleton"},
         Troops.valkyrie:   {"score": 4, "category": "air",    "name": "Valkyrie"},
         Troops.barbarian: {"score": 3, "category": "ground", "name": "Barbarian"}
     }
