@@ -64,12 +64,13 @@ def logic(arena_data: dict):
     count_air = sum(1 for token in tokens if token in opponent_air)
     count_ground = sum(1 for token in tokens if token in opponent_ground)
     troops_all={"Archer", "Minion", "Knight", "Skeleton", "Dragon", "Valkyrie","Musketeer", "Giant", "Prince", "Barbarian", "Balloon", "Wizard"}
-    points ={{0 for i in range (0,12)} for j in range (0,12)}
+    points ={{0 for i in range (8)} for j in range (0,12)}
+    points[0] = {5,7,3,6,2,3,6,6,}
     for i in range (0,12):
         for j in range (0,12):
             if i==j:
                 points[i][j]=5
-    points[0] = {5,4,4,4,3,3,6,6,}
+    points[0] = {}
     if count_ground > count_air:
         recommended_counter = "air"    # Counter ground with air units.
     elif count_air > count_ground:
