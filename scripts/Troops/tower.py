@@ -51,7 +51,7 @@ class Tower:
         self.run_counter = 0
         
         # Initialize user resources
-        self.total_elixir = 10 
+        self.total_elixir = 5 
         self.total_dark_elixir = 0
         self.oppTower:Tower = None
         self.myTroops = []

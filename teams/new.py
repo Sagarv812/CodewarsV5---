@@ -26,8 +26,9 @@ from teams.helper_function import Troops, Utils
 team_name = "YOYO"
 troops = [
     Troops.wizard, Troops.minion, Troops.archer, Troops.prince,
-    Troops.dragon, Troops.knight, Troops.valkyrie, Troops.barbarian
+    Troops.dragon, Troops.knight, Troops.valkyrie, Troops.skeleton
 ]
+
 deploy_list = Troops([])
 team_signal = ""
 
@@ -65,10 +66,15 @@ def logic(arena_data: dict):
     count_ground = sum(1 for token in tokens if token in opponent_ground)
     troops_all={"Archer", "Minion", "Knight", "Skeleton", "Dragon", "Valkyrie","Musketeer", "Giant", "Prince", "Barbarian", "Balloon", "Wizard"}
     points ={{0 for i in range (8)} for j in range (0,12)}
-    points[0] = {5,7,3,6,2,3,6,6,}
+    points[0] = {9, 9, 9, 8, 7, 8, 7, 6, 6, 9, 7, 5}# wizard
+    points[1] = {5, 5, 9, 8, 6, 3, 5, 6, 6, 7, 6, 1} # minions
+    points[2] = {5, 6, 4, 3, 5, 3, 6, 6, 3, 7, 8, 2} #archer
+    points[3] = {8, 4, 6, 1, 2, 7, 8, 8, 5, 7, 0, 5} #prince
+    points[4] = {5, 7, 8, 9, 5, 7, 4, 7, 7, 8, 8, 2} # dragon
+    points[5] = {7, 3, 5, 1, 3, 6, 7, 7, 4, 6, 0 , 5} #knight
     for i in range (0,12):
         for j in range (0,12):
-            if i==j:
+            if i==j:                
                 points[i][j]=5
     points[0] = {}
     if count_ground > count_air:

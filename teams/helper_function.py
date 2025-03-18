@@ -14,6 +14,7 @@ class Troops:
     wizard = "Wizard"
     valkyrie = "Valkyrie"
     musketeer = "Musketeer"
+    princess = "Princess"
 
     def __init__(self, list_):
         self.list_ = list_
@@ -54,6 +55,8 @@ class Troops:
     def deploy_musketeer(self,location):
         self.list_.append(("Musketeer",location))
 
+    def deploy_princess(self,location):
+        self.list_.append(("Princess",location))
 
 class Utils:
 
